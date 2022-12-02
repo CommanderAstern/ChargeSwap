@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import React, { useState } from "react";
+import styles from "./style";
+
 import {
   Navbar,
   Footer,
@@ -7,19 +9,16 @@ import {
   Dashboard,
 } from "./components";
 
-function App() {
-
+const App = () => {
   return (
-    <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
-        <Navbar />
-        <Dashboard/>
+    <div className="bg-primary w-full overflow-hidden">
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Navbar />
+        </div>
       </div>
-      <SearchStations />
-      <Station />
-      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
