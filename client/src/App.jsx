@@ -17,6 +17,13 @@ const App = () => {
           <Navbar />
         </div>
       </div>
+
+      <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
+        <div className={`${styles.boxWidth}`}>
+          <SearchStations />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };
