@@ -63,7 +63,7 @@ const SearchStations = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:mx-[8rem]">
+      <div className="flex flex-col md:mx-[8rem] mx-6">
         <StationCard
           image={station_1}
           stationName="Station #127A"
