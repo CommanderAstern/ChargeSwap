@@ -10,18 +10,16 @@ import {
 } from "../components";
 
 export const Stations = () => {
+  // const { connect, disconnect, address, loading: eoaWalletLoading } = useWeb3AuthContext();
+  // const navigate = useNavigate();
+
+  // useEffect (() => {
+  //   if(!address && !eoaWalletLoading){
+  //     navigate("/");
+  // }})
   
-  const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
-  const navigate = useNavigate();
-
-    useEffect (() => {
-    if(!address && !eoaWalletLoading){
-      navigate("/");
-    }
-
-  })
-    //query parametes
-    const { id } = useParams();
+  //query parametes
+  const { id } = useParams();
 
   return (
     <div>

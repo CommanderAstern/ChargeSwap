@@ -192,7 +192,7 @@ contract BatterySwap is Stations, ERC20 {
                         "+", // segregator
                         "Success!!", // this is notificaiton title
                         "+", // segregator
-                        "You can now safely eject the batteries",
+                        "You can now safely eject the batteries"
                     )
                 )
             )
@@ -219,7 +219,7 @@ contract BatterySwap is Stations, ERC20 {
                         "+", // segregator
                         "Success!!", // this is notificaiton title
                         "+", // segregator
-                        "Your presence has been confirmed !",
+                        "Your presence has been confirmed !"
                     )
                 )
             )
