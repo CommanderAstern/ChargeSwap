@@ -1,7 +1,7 @@
 # ChargeSwap
 Team unETHicals' Project for ETHIndia 
 
-![Landing Page](https://user-images.githubusercontent.com/66853318/205445569-8b563fa2-9872-4648-aa0c-2ab20f74cfd1.png)
+![image](https://user-images.githubusercontent.com/66853318/205450279-5c97efbf-89dd-4c17-a0ca-abf1401d48c6.png)
 
 
 ## Problem Statement
@@ -15,10 +15,14 @@ We are mainly targetting users who own and/or drive Electric Vehicles, especiall
 Although the current market may not seem to be a big one, within the next 10 years this will be a helpful innovation as the world is shifting to EVs - this claim is backed by credible predictions from the government which states that 30% vehicles in India alone would be electric.
 
 ## Objective/Goal
-Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users who use EVs that utilize battery swapping techniques.
-
+Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users especially the ones who use EVs that utilize battery swapping techniques.
 
 ## Features
+1. 
+
+## User Flows
+
+
 Mentioning:
 
 - [x] Problem
