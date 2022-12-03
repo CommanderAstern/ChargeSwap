@@ -6,10 +6,10 @@
 
 MFRC522 rfid(SS_PIN, RST_PIN);
 
-void setup() {
+void tsetup() {
 
   // Initialize serial communications with the PC
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   // Init SPI bus
   SPI.begin();
@@ -18,7 +18,7 @@ void setup() {
   rfid.PCD_Init();
 }
 
-void loop() {
+void tloop() {
 
   // Look for new cards
   if (rfid.PICC_IsNewCardPresent()) { 
@@ -38,8 +38,10 @@ void loop() {
       
       Serial.print(UID);
       Serial.println();
-      rfid.PICC_HaltA(); // halt PICC
-      rfid.PCD_StopCrypto1(); // stop encryption on PCD
+      // halt PICC
+      rfid.PICC_HaltA();
+      // stop encryption on PCD
+      rfid.PCD_StopCrypto1(); 
     }
   }
 }
