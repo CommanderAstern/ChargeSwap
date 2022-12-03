@@ -1,5 +1,4 @@
-# ChargeSwap
-Team unETHicals' Project for ETHIndia 
+# ChargeSwap - Battery swapping system
 
 ![image](https://user-images.githubusercontent.com/66853318/205450279-5c97efbf-89dd-4c17-a0ca-abf1401d48c6.png)
 
