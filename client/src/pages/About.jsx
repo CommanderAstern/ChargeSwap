@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "../style";
 
-import {
-  Navbar,
-  Footer,
-  Station,
-  SearchStations,
-  Dashboard,
-} from "../components";
+// import {
+//   Navbar,
+//   Footer,
+//   Station,
+//   SearchStations,
+//   DashboardInfo
+// } from "../components";
 
 export const About = () => {
   return (
@@ -20,7 +20,7 @@ export const About = () => {
 
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
-          <Dashboard />
+          {/* <DashboardInfo /> */}
         </div>
       </div>
       {/* <Footer /> */}

@@ -3,7 +3,6 @@ import styles from "../style";
 
 import {
   LandingPage,
-  Dashboard,
 } from "../components";
 
 export const Landing = () => {
@@ -25,4 +24,4 @@ export const Landing = () => {
   );
 };
 
-export default Dashboard;
+export default Landing;

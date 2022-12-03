@@ -3,11 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "../style";
 
 import {
-  Navbar,
-  Footer,
   Station,
-  SearchStations,
-  Dashboard,
 } from "../components";
 
 export const Stations = () => {
