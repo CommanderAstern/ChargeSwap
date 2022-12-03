@@ -27,6 +27,8 @@ Our goal is to be among the first innovators in this space of EV which involves 
 ![Taskflows - chargeswap](https://user-images.githubusercontent.com/66853318/205455195-177a6d04-58e8-4088-9ae5-f9aad19ec51c.png)
 
 ## UI Designs
+You can find the logo and the high fidelity prototype at this link https://www.figma.com/file/mpwwdKDQNRC2o86aAE1lkO/ChargeSwap?node-id=1%3A2&t=rvTFHoqrI10rldzL-1
+
 
 ## Why use blockchain?
 
