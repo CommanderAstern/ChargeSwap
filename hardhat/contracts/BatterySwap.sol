@@ -29,6 +29,8 @@ contract BatterySwap {
     Battery[] public batteries;  
     Counters.Counter private _batteryIds;  
     mapping(string => uint) public rfidToBattery;
+
+    mapping(address => uint256) public userToLastScanned;
     
     uint blocksPerReduceCharge = 50;
     uint public ethPerCharge = 1 ether/ 100;
@@ -136,6 +138,7 @@ contract BatterySwap {
 
         return totalcost;
     }
+
     function swapAllBatteries(uint _stationId) public payable {
         uint[] memory userBatteries = getBatteriesByUser(msg.sender);
         require(userBatteries.length > 0, "User has no batteries");
@@ -148,7 +151,6 @@ contract BatterySwap {
             totalcost += (100 - getBatteryPercentage(userBatteries[i])) * ethPerCharge;
         }
         require(msg.value >= totalcost, "Not enough funds to swap batteries");
-
 
         for (uint i = 0; i < userBatteries.length; i++) {
             batteries[userBatteries[i]].status = Status.Idle;
@@ -167,4 +169,16 @@ contract BatterySwap {
     function updateEthPerCharge(uint _newEthPerCharge) public {
         ethPerCharge = _newEthPerCharge;
     }
+
+    function scan() public {
+        userToLastScanned[msg.sender] = block.timestamp;
+    }
+
+    function check() public view returns (bool) {
+        if (block.tiemstamp - userToLastScanned[msg.sender] <= 20) {
+            return true;
+        }
+        return false;
+    }
+
 }
