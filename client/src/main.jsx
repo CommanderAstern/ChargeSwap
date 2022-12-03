@@ -15,10 +15,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Navbar />
         </div>
       </div>
-
+      <div className="h-full">
       <BrowserRouter>
         <Router />
       </BrowserRouter>
+      </div>
       <Footer />
     </div>
   </React.StrictMode>

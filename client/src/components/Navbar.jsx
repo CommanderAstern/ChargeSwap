@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="w-full flex justify-between items-center navbar">
       {/* Logo */}
-      <a href="#home">
+      <a href="/home">
         <img src={logo} alt="ChargeSwap" className="w-[120px] h-[80px] mt-2" />
       </a>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-        <a href="#home">
+        <a href="/home">
           <img
             src={profile}
             alt="Profile"
@@ -57,7 +57,7 @@ const Navbar = () => {
         min-w-[140px] rounded-xl sidebar`}
         >
           <ul className="list-none flex flex-col justify-end items-center flex-1">
-            <a href="#home">
+            <a href="/home">
               <img
                 src={profile}
                 alt="Profile"
@@ -74,7 +74,7 @@ const Navbar = () => {
                 ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
                 text-white`}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a href={`/${nav.id}`}>{nav.title}</a>
               </li>
             ))}
           </ul>
