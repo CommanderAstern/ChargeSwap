@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { close, logo, menu, profile } from "../assets";
 import { navLinks } from "../constants";
+import Button from "./Button";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -31,13 +32,13 @@ const Navbar = () => {
         </ul>
       </div>
 
-        <a href="/home">
-          <img
-            src={profile}
-            alt="Profile"
-            className="w-[40px] h-[40px] mt-2 mr-2 rounded-full hidden md:block"
-          />
-        </a>
+      <a href="/home">
+        <img
+          src={profile}
+          alt="Profile"
+          className="w-[40px] h-[40px] mt-2 mr-2 rounded-full hidden md:block"
+        />
+      </a>
 
       {/* only for mobile devices, created separately */}
       <div className="sm:hidden flex flex-1 justify-end items-center">

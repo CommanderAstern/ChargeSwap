@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../style";
-
+import { useWeb3AuthContext } from "../contexts/SocialLoginContext";
 import {
-  Navbar,
-  Footer,
-  Station,
   SearchStations,
-  Dashboard,
 } from "../components";
+import { useNavigate } from "react-router-dom";
 
 export const Stations = () => {
+  const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
+  const navigate = useNavigate();
+
+
+  // useEffect (() => {
+  //   if(!address && !eoaWalletLoading){
+  //     navigate("/");
+  //   }
+
+  // })
+
   return (
     <div>
       {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>

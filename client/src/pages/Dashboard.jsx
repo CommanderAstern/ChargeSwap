@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../style";
 
 import {
-  Navbar,
-  Footer,
-  Station,
-  SearchStations,
-  Dashboard,
+ 
+  DashboardInfo,
 } from "../components";
 
 export const Dashboard = () => {
@@ -20,7 +17,7 @@ export const Dashboard = () => {
 
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
-          <Dashboard />
+          <DashboardInfo />
         </div>
       </div>
       {/* <Footer /> */}
