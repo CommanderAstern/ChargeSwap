@@ -14,8 +14,8 @@ There is a need for a safe, secure, public and fast battery swapping system. Blo
 We are mainly targetting users who own and/or drive Electric Vehicles, especially the vehicles that are 
 Although the current market may not seem to be a big one, within the next 10 years this will be a helpful innovation as the world is shifting to EVs - this claim is backed by credible predictions from the government which states that 30% vehicles in India alone would be electric.
 
-## Objective
-To be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users who have EVs that use battery swapping. 
+## Objective/Goal
+Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users who use EVs that utilize battery swapping techniques.
 
 Mentioning:
 
