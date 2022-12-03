@@ -31,16 +31,15 @@ const FeatureCard = ({ icon, title, content, index }) => (
 
 const Steps = () => {
   return (
-    <section id="steps" className={layout.section}>
+    <section id="how-it-works" className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
-          You do the Steps, <br className="sm:block hidden" />
-          we'll handle the power.
+          You do the steps, <br className="sm:block hidden" />
+          we'll handle the <span className="text-gradient">power</span>.
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quis
-          provident optio, rem vitae necessitatibus nesciunt obcaecati aut ex
-          perferendis.
+          Our system is powered by blockchain and IoT, ensuring that your data
+          is secure and your transactions are fast and reliable.
         </p>
         {/* styles is a prop */}
         {/* <Button styles="mt-10" /> */}

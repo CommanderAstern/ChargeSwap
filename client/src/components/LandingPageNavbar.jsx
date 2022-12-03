@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="w-full py-6 flex justify-between items-center navbar">
       {/* Logo */}
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
+      <img src={logo} alt="hoobank" className="w-[120px] h-[60px]" />
 
       {/* List of links */}
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -19,13 +19,25 @@ const Navbar = () => {
             font-normal
             cursor-pointer
             text-[16px]
-            ${index === landingNavLinks.length - 1 ? "mr-0" : "mr-10"}
+            mr-10
             text-white`}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
         ))}
       </ul>
+
+      <li
+        key="get-started"
+        className={`font-poppins
+            font-normal
+            cursor-pointer
+            text-[16px]
+            mr-0
+            text-gradient`}
+      >
+        <a href="#get-started">Get Started</a>
+      </li>
 
       {/* only for mobile devices, created separately */}
       <div className="sm:hidden flex flex-1 justify-end items-center">
