@@ -11,14 +11,16 @@ The world is shifting to Electric Vehicles especially With the increasing demand
 There is a need for a safe, secure, public and fast battery swapping system. Blockchain technology would ensure that the transactions are secure and immutable, while IoT would enable the tracking of the battery’s location and usage. So there needs to be a system that enables it. We call it ChargeSwap. ChargeSwap allows the user to seamlessly make a simple transaction to the system and get their discharged batteries swapped for batteries with 100% charge with the lowest costs possible. Additionally, we would implement this system only when there is a renewable source of energy that distributes energy to the battery swapping station because we ultimately do not want the user to pay more through gas and spend more electricity to get more electricity - hence it would make sense for the source of the energy of these charging stations is renewable. IoT would help in tracking and managing the battery information.
 
 ## Target Market
-We are mainly targetting users who own and/or drive Electric Vehicles, especially the vehicles that are 
-Although the current market may not seem to be a big one, within the next 10 years this will be a helpful innovation as the world is shifting to EVs - this claim is backed by credible predictions from the government which states that 30% vehicles in India alone would be electric.
+We are mainly targetting users who own and/or drive Electric Vehicles, especially the vehicles that contain swappable batteries.
+Although the current market may not seem to be a big one, within the next 10 years this will be a helpful innovation as the world is shifting to EVs - this claim is backed by credible predictions from the government which states that 30% vehicles in India alone would be electric. We do not require the user to necessarily have a web3 wallet, the user can make payments through web2 services too.
 
 ## Objective/Goal
 Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users especially the ones who use EVs that utilize battery swapping techniques.
 
 ## Features
-1. 
+1. Find locations of battery stations.
+2. Make payments at the station using either web2 or web3 technologies.
+3. Manage and maintain all information of the batteries including percentage, location, number of times swapped and other metadata.
 
 ## User Flows
 
@@ -32,7 +34,7 @@ Mentioning:
 
 Explanation of the product/service (Explains how the product/service adds value to consumer)
 - [x] Objective/Goal
-- Features
+- [x] Features
 - User flows
 - Designs
 - Why is blockchain being used
