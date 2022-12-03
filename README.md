@@ -28,9 +28,14 @@ Although the current market may not seem to be a big one, within the next 10 yea
 Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users especially the ones who use EVs that utilize battery swapping techniques.
 
 ## Features
+
+**Blockhain:**
 1. Find locations of battery stations.
 2. Make payments at the station using either web2 or web3 technologies.
 3. Manage and maintain all information of the batteries including percentage, location, number of times swapped and other metadata.
+
+**IoT:**
+1. RFID helps in secure verification of the battery, user and station.
 
 ## User Flow
 
