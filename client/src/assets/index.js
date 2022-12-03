@@ -21,6 +21,12 @@ import push from "./push.png";
 import biconomy from "./biconomy.png";
 import ipfs from "./ipfs.png";
 import polygon from "./polygon.png";
+import hardhat from "./hardhat.png";
+import reactjs from "./react.png";
+import web3js from "./web3js.png";
+import arduino from "./arduino.png";
+import figma from "./figma.png";
+import tailwindcss from "./tailwindcss.png";
 
 export {
     logo,
@@ -46,4 +52,10 @@ export {
     ipfs,
     biconomy,
     push,
+    hardhat,
+    reactjs,
+    web3js,
+    arduino,
+    figma,
+    tailwindcss,
 }

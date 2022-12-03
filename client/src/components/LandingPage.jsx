@@ -5,7 +5,6 @@ import Stats from "./Stats";
 import Steps from "./Steps";
 import Technologies from "./Technologies";
 import CTA from "./CTA";
-import Footer from "./Footer";
 import styles from "../style";
 
 const LandingPage = () => {
@@ -29,13 +28,6 @@ const LandingPage = () => {
           <Steps/>
           <Technologies />
           <CTA/>
-          <Footer />
-          {/* <Billing/>
-          <CardDeal/>
-          <Testimonials/>
-          <Clients/>
-          <CTA/>
-          <Footer/> */}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { one, two, three, polygon, biconomy, push, ipfs  } from "../assets";
+import { one, two, three, polygon, biconomy, push, ipfs, hardhat, reactjs, tailwindcss, web3js, arduino, figma  } from "../assets";
 // import { TbNumber1, TbNumber2, TbNumber3 } from 'react-icons/tb';
 
 export const landingNavLinks = [
@@ -89,5 +89,25 @@ export const navLinks = [
     {
       id: "tech-4",
       logo: ipfs,
+    },
+    {
+      id: "tech-5",
+      logo: hardhat,
+    },
+    {
+      id: "tech-6",
+      logo: reactjs,
+    },
+    {
+      id: "tech-7",
+      logo: tailwindcss,
+    },
+    {
+      id: "tech-8",
+      logo: web3js,
+    },
+    {
+      id: "tech-9",
+      logo: arduino,
     },
   ];
