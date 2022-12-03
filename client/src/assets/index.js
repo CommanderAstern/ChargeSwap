@@ -17,6 +17,10 @@ import star from "./Star.svg";
 import one from "./one.png";
 import two from "./two.png";
 import three from "./three.png";
+import push from "./push.png";
+import biconomy from "./biconomy.png";
+import ipfs from "./ipfs.png";
+import polygon from "./polygon.png";
 
 export {
     logo,
@@ -37,5 +41,9 @@ export {
     star,
     one,
     two,
-    three
+    three,
+    polygon,
+    ipfs,
+    biconomy,
+    push,
 }
