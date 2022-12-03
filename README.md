@@ -12,6 +12,7 @@ Explanation of the product/service (Explains how the product/service adds value 
 - Features
 - User flows
 - Designs
+- Why is blockchain being used
 - Technologies used and why
 - Network diagram
 - Info about some basics of blockchain that we employed
