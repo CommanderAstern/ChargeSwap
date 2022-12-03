@@ -114,3 +114,7 @@ Cargo.lock
 
 # VSCode settings
 .vscode/
+
+# hardhat
+artifacts/
+cache/
