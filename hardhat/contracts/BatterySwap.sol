@@ -47,6 +47,7 @@ contract BatterySwap is Stations, ERC20 {
     
     uint blocksPerReduceCharge = 50;
     uint public ethPerCharge = 1 ether/ 100;
+    uint blocksTillConfirmed = 340;
     
     function addNewBatteryToStation(uint256 _currentStation, string memory _metaAbi, string memory _rfid) public {
         uint256 newBatteryId = _batteryIds.current();
@@ -205,10 +206,28 @@ contract BatterySwap is Stations, ERC20 {
 
     function scan(address _user) public {
         userToLastScanned[_user] = block.timestamp;
+        IPUSHCommInterface(EPNS_COMM_ADDRESS).sendNotification(
+            CONTRACT_ADDRESS, // from channel
+            _user, // to recipient, put address(this) in case you want Broadcast or Subset. For Targetted put the address to which you want to send
+            bytes(
+                string(
+                    // We are passing identity here: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                    abi.encodePacked(
+                        "0", // this is notification identity: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                        "+", // segregator
+                        "3", // this is payload type: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/payload (1, 3 or 4) = (Broadcast, targetted or subset)
+                        "+", // segregator
+                        "Success!!", // this is notificaiton title
+                        "+", // segregator
+                        "Your presence has been confirmed !",
+                    )
+                )
+            )
+        );
     }
 
-    function check() public view returns (bool) {
-        if (block.tiemstamp - userToLastScanned[msg.sender] <= 20) {
+    function check(address _user) public view returns (bool) {
+        if (block.timestamp - userToLastScanned[_user] <= blocksTillConfirmed) {
             return true;
         }
         return false;
