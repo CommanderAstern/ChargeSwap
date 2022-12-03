@@ -1,4 +1,4 @@
-import { one, two, three  } from "../assets";
+import { one, two, three, polygon, biconomy, push, ipfs  } from "../assets";
 // import { TbNumber1, TbNumber2, TbNumber3 } from 'react-icons/tb';
 
 export const landingNavLinks = [
@@ -7,16 +7,12 @@ export const landingNavLinks = [
     title: "Home",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "how-it-works",
+    title: "How it Works",
   },
   {
-    id: "product",
-    title: "Product",
-  },
-  {
-    id: "clients",
-    title: "Clients",
+    id: "technologies",
+    title: "Technologies",
   },
 ];
 
@@ -74,5 +70,24 @@ export const navLinks = [
       title: "Swap & Pay",
       content:
         "Insert your old batteries into the station, pay for the new batteries and be re-charged!",
+    },
+  ];
+
+  export const technologies = [
+    {
+      id: "tech-1",
+      logo: polygon,
+    },
+    {
+      id: "tech-2",
+      logo: biconomy,
+    },
+    {
+      id: "tech-3",
+      logo: push,
+    },
+    {
+      id: "tech-4",
+      logo: ipfs,
     },
   ];
