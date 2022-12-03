@@ -2,6 +2,8 @@
 #include <Web3.h>
 #include <Util.h>
 #include <Contract.h>
+#include <WiFiClientSecure.h>
+#include <HTTPClient.h>
 
 const char *ssid = "Asim";
 const char *password = "ilikewater";
@@ -12,6 +14,7 @@ const char *password = "ilikewater";
 // Copy/paste the private key from MetaMask in here
 const char *PRIVATE_KEY = "a12e71ebe9a4bc009a99f6b0a99c8f24163ce13d39979100adb2a1a74c7519b7"; //32 Byte Private key 
 
+const char* serverName = "https://restPolygon.asimjawahir.repl.co/";
 int wificounter = 0;
 Web3 *web3;
 
