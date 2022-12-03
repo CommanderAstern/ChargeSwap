@@ -28,14 +28,12 @@ Although the current market may not seem to be a big one, within the next 10 yea
 Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users especially the ones who use EVs that utilize battery swapping techniques.
 
 ## Features
-
-**Blockhain:**
 1. Find locations of battery stations.
-2. Make payments at the station using either web2 or web3 technologies.
+2. Swap the used batteries for fully charged batteries through a payement gateway.
 3. Manage and maintain all information of the batteries including percentage, location, number of times swapped and other metadata.
-
-**IoT:**
-1. RFID helps in secure verification of the battery, user and station.
+4. Battery, station and user authorization at the swapping stations using RFID.
+5. Social login for seamless onboarding experience. 
+6. Push notifications for live updates.
 
 ## User Flow
 
@@ -51,6 +49,12 @@ You can find the logo and the high fidelity prototype at this link https://www.f
 Blockchain technology, combined with IoT, provides a solution to problems related to the storage of battery information. It would allow for immutable storage of information such as age and treatment of the battery, as well as the sources of energy used to charge it. Additionally, smart contracts on the blockchain could be used to facilitate efficient swapping of batteries at charging stations. 
 
 ## Technologies Used:
+
+
+- Polygon: for scalability, lower transaction fees, and faster speeds
+- Push Protocol: for communications, notifications 
+- IPFS: to store the metadata for the batteries used
+- Biconomy: used for social login and reducing the steps taken in UX
 
 
 
