@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
-import styles from "../style";
+import { ChainId } from "@biconomy/core-types";
+import SmartAccount from "@biconomy/smart-account"
 
+import styles from "../style";
 import {
   Navbar,
   Footer,
@@ -17,6 +19,21 @@ export const App = () => {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [chainID, setChainID] = useState(null);
   const [chainName, setChainName] = useState(null);
+  const [smartAccount, setSmartAccount] = useState(null)
+  
+  const { provider, address } = useWeb3AuthContext();
+  const walletProvider = new ethers.providers.Web3Provider(provider);
+
+  let options = {
+    activeNetworkId: ChainId.POLYGON_MUMBAI,
+    supportedNetworksIds: [ ChainId.GOERLI, ChainId.POLYGON_MAINNET, ChainId.POLYGON_MUMBAI]
+  }
+
+  async function lorem() {
+    let temp = new SmartAccount(walletProvider, options);
+    temp = await smartAccount.init();
+    setSmartAccount(temp);
+  }
 
   useEffect(() => {
     if(!currentAccount || !ethers.utils.isAddress(currentAccount)) {
@@ -25,6 +42,7 @@ export const App = () => {
     if (!window.ethereum) {
       return;
     }
+    lorem()
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     provider.getBalance(currentAccount).then((result)=>{
@@ -60,24 +78,19 @@ export const App = () => {
   }
 
   return (
-    <div>
-      {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar />
-        </div>
-      </div> */}
-
-      <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
-        <div className={`${styles.boxWidth}`}>
-          {
-            !currentAccount ?
-            <button className="bg-primary text-white text-2xl font-bold py-2 px-4 rounded my-100" onClick={onClickConnect}> Connect </button>
-            : <button className="bg-primary text-white text-2xl font-bold py-2 px-4 rounded my-100" onClick={onClickDisconnect}> Disconnect </button>
-          }
-        </div>
+    <div className="bg-primary w-full overflow-hidden">
+    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+        <Navbar />
       </div>
-  
     </div>
+    <div className="h-full">
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+    </div>
+    <Footer />
+  </div>
   );
 };
 
