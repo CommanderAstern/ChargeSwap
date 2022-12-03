@@ -17,6 +17,8 @@ Although the current market may not seem to be a big one, within the next 10 yea
 ## Objective/Goal
 Our goal is to be among the first innovators in this space of EV which involves battery swapping. We want to make an impact on all EV users who use EVs that utilize battery swapping techniques.
 
+
+## Features
 Mentioning:
 
 - [x] Problem
