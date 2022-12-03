@@ -8,6 +8,12 @@ import { GiBattery75 } from "react-icons/gi";
 import { SiEthereum } from "react-icons/si";
 
 const TransactionItem = ({ percentage, index, price }) => {
+
+  const transact = async () => {
+    return null;
+
+  }
+
   return (
     <div className="flex justify-between">
       <div className="w-40 md:w-48">
@@ -43,13 +49,13 @@ const TransactionSummary = () => {
       <h2 className="text-gradient font-poppins font-bold text-xl mb-4">
         Summary
       </h2>
-      <TransactionItem percentage="100" index="1" price="0.00001" />
-      <TransactionItem percentage="50" index="2" price="0.00001" />
+      <TransactionItem percentage="92" index="1" price="0.00001" />
+      <TransactionItem percentage="92" index="2" price="0.00001" />
       <hr className="my-2 bg-gray-800"/>
       <div className="flex justify-end">
         <span className="text-teal-200 font-semibold font-poppins">Total: 0.00002 ETH</span>
       </div>
-      <Button text="Pay Now" icon={SiEthereum} styles="mt-4"/>
+      <button title="Pay Now" onClick= {transact} icon={SiEthereum} styles="mt-4"></button>
     </div>
   );
 };
@@ -75,9 +81,9 @@ const Station = ({id}) => {
   console.log(id);
   return (
     <div>
-      <div className={`${styles.flexCenter} ${styles.paddingX} flex-col`}>
+      {/* <div className={`${styles.flexCenter} ${styles.paddingX} flex-col`}>
         <SearchBar />
-      </div>
+      </div> */}
       <div className="flex flex-col p-4 mt-4 rounded-lg md:mx-[8rem] transition-colors duration-300 transform border hover:border-transparent dark:border-gray-700 dark:hover:border-transparent">
         <StationCard
           image={station_1}

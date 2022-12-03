@@ -6,22 +6,21 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 import {
-  Station,
+  PaymentConfirmed
 } from "../components";
 
-export const Stations = () => {
+export const Payment = () => {
+  
+//   const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
+//   const navigate = useNavigate();
 
-  // const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
-  // const navigate = useNavigate();
+//     useEffect (() => {
+//     if(!address && !eoaWalletLoading){
+//       navigate("/");
+//     }
 
-  //   useEffect (() => {
-  //   if(!address && !eoaWalletLoading){
-  //     navigate("/");
-  //   }
-
-  // })
+//   })
     //query parametes
-    const { id } = useParams();
 
   return (
     <div>
@@ -33,7 +32,7 @@ export const Stations = () => {
 
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
-          <Station id ={id}/>
+          <PaymentConfirmed/>
         </div>
       </div>
       {/* <Footer /> */}
@@ -41,4 +40,4 @@ export const Stations = () => {
   );
 };
 
-export default Stations;
+export default Payment;
