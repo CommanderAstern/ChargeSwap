@@ -24,18 +24,18 @@ Our goal is to be among the first innovators in this space of EV which involves 
 
 ## User Flows
 
-![userflow](https://user-images.githubusercontent.com/66853318/205451726-f66dbb22-744c-43ba-b9bc-3ab9773f779a.png)
+![Taskflows - chargeswap](https://user-images.githubusercontent.com/66853318/205455195-177a6d04-58e8-4088-9ae5-f9aad19ec51c.png)
+
 
 Mentioning:
 
 - [x] Problem
 - [x] Solution
-- USP
 
 Explanation of the product/service (Explains how the product/service adds value to consumer)
 - [x] Objective/Goal
 - [x] Features
-- User flows
+- [x] User flows
 - Designs
 - Why is blockchain being used
 - Technologies used and why
