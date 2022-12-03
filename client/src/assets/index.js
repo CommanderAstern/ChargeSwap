@@ -11,6 +11,12 @@ import arrowUp from "./arrow-up.svg";
 import discount from "./Discount.svg";
 import robot from "./robot.png";
 import battery_3d from "./3d_battery.svg";
+import send from "./Send.svg";
+import shield from "./Shield.svg";
+import star from "./Star.svg";
+import one from "./one.png";
+import two from "./two.png";
+import three from "./three.png";
 
 export {
     logo,
@@ -25,5 +31,11 @@ export {
     arrowUp,
     discount,
     robot,
-    battery_3d
+    battery_3d,
+    send,
+    shield,
+    star,
+    one,
+    two,
+    three
 }

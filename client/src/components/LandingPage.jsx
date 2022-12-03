@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import LandingPageNavbar from "./LandingPageNavbar";
 import Stats from "./Stats";
+import Steps from "./Steps";
 import styles from "../style";
 
 const LandingPage = () => {
@@ -22,8 +23,8 @@ const LandingPage = () => {
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
           <Stats/>
-          {/* <Business/>
-          <Billing/>
+          <Steps/>
+          {/* <Billing/>
           <CardDeal/>
           <Testimonials/>
           <Clients/>

@@ -4,6 +4,7 @@ import Station from "./Station";
 import Dashboard from "./Dashboard";
 import SearchStations from "./SearchStations";
 import LandingPage from "./LandingPage";
+import PaymentConfirmed from "./PaymentConfirmed";
 
 export {
     Navbar,
@@ -11,5 +12,6 @@ export {
     Station,
     Dashboard,
     SearchStations,
-    LandingPage
+    LandingPage,
+    PaymentConfirmed,
 }
