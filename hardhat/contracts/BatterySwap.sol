@@ -2,11 +2,24 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 import "./Stations.sol";
+
+interface IPUSHCommInterface {
+    function sendNotification(address _channel, address _recipient, bytes calldata _identity) external;
+}
+
 /**
  * @title EV Battery Station
  */
-contract BatterySwap {
+contract BatterySwap is Stations, ERC20 {
     
+    address public EPNS_COMM_ADDRESS = 0xb3971BCef2D791bc4027BbfedFb47319A4AAaaAa;
+    address public CONTRACT_ADDRESS = 0x53b5aEca5C21cbd3F54016C720C3805fbACd2bD6;
+
+    constructor() ERC20("Push Token", "PUSH") {
+        _mint(msg.sender, 1000 * 10 ** uint(decimals()));
+    }
+
+
     using Counters for Counters.Counter;
 
     enum Status {
@@ -163,6 +176,26 @@ contract BatterySwap {
             // batteries[batteriesForSwapping[i]].currentStation = 0;
             batteries[batteriesForSwapping[i]].currentUser = msg.sender;
         }
+
+        // msg.sender.transfer(msg.value - totalcost);
+        IPUSHCommInterface(EPNS_COMM_ADDRESS).sendNotification(
+            CONTRACT_ADDRESS, // from channel
+            msg.sender, // to recipient, put address(this) in case you want Broadcast or Subset. For Targetted put the address to which you want to send
+            bytes(
+                string(
+                    // We are passing identity here: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                    abi.encodePacked(
+                        "0", // this is notification identity: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/identity/payload-identity-implementations
+                        "+", // segregator
+                        "3", // this is payload type: https://docs.epns.io/developers/developer-guides/sending-notifications/advanced/notification-payload-types/payload (1, 3 or 4) = (Broadcast, targetted or subset)
+                        "+", // segregator
+                        "Success!!", // this is notificaiton title
+                        "+", // segregator
+                        "You can now safely eject the batteries",
+                    )
+                )
+            )
+        );
     }
 
     //only owner
@@ -170,8 +203,8 @@ contract BatterySwap {
         ethPerCharge = _newEthPerCharge;
     }
 
-    function scan() public {
-        userToLastScanned[msg.sender] = block.timestamp;
+    function scan(address _user) public {
+        userToLastScanned[_user] = block.timestamp;
     }
 
     function check() public view returns (bool) {
@@ -180,5 +213,4 @@ contract BatterySwap {
         }
         return false;
     }
-
 }
