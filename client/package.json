@@ -14,7 +14,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.4",
-    "react-search-box": "^2.3.0"
+    "react-search-box": "^2.3.0",
+    "web3modal": "^1.9.10"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
