@@ -28,24 +28,12 @@ Our goal is to be among the first innovators in this space of EV which involves 
 
 ## UI Designs
 
-Mentioning:
+## Why use blockchain?
 
-- [x] Problem
-- [x] Solution
+Blockchain technology, combined with IoT, provides a solution to problems related to the storage of battery information. It would allow for immutable storage of information such as age and treatment of the battery, as well as the sources of energy used to charge it. Additionally, smart contracts on the blockchain could be used to facilitate efficient swapping of batteries at charging stations. 
 
-Explanation of the product/service (Explains how the product/service adds value to consumer)
-- [x] Objective/Goal
-- [x] Features
-- [x] User flows
-- [x] Designs
-- Why is blockchain being used
-- Technologies used and why
-- Network diagram
-- Info about some basics of blockchain that we employed
-- Compeition
-- Product placement
-- Revenue Model
-- target market
-- The Team
+## Technologies Used:
+
+
 
 
