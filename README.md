@@ -22,10 +22,11 @@ Our goal is to be among the first innovators in this space of EV which involves 
 2. Make payments at the station using either web2 or web3 technologies.
 3. Manage and maintain all information of the batteries including percentage, location, number of times swapped and other metadata.
 
-## User Flows
+## User Flow
 
 ![Taskflows - chargeswap](https://user-images.githubusercontent.com/66853318/205455195-177a6d04-58e8-4088-9ae5-f9aad19ec51c.png)
 
+## UI Designs
 
 Mentioning:
 
@@ -36,7 +37,7 @@ Explanation of the product/service (Explains how the product/service adds value 
 - [x] Objective/Goal
 - [x] Features
 - [x] User flows
-- Designs
+- [x] Designs
 - Why is blockchain being used
 - Technologies used and why
 - Network diagram
