@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import  App  from "./pages/App";
 import  Stations  from "./pages/Stations";
 import  StationInfo  from "./pages/StationInfo";
+import About  from "./pages/About";
 // import { Other } from "./pages/Other";
 // import { NotFound } from "./pages/NotFound";
 
@@ -15,6 +16,7 @@ export const Router = () => {
       <Route path="/home" element={<App />} />
       <Route path="/stations" element={<Stations />} />
       <Route path = "/stations/:id" element = {<StationInfo />} />
+      <Route path="/about" element={<About />} />
 
 
       {/* <Route path="/other" element={<Other />} /> */}

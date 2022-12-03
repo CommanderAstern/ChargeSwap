@@ -1,8 +1,11 @@
 import React from "react";
 import { IoNavigateCircle } from "react-icons/io5";
-import { BsDot } from "react-icons/bs";
+import { BsDot} from "react-icons/bs";
+import { FaLeaf } from "react-icons/fa";
 
-const StatusTag = ({ status }) => {
+
+
+const StatusTag = ({ status, source }) => {
   return (
     <div className="flex items-center">
       <span
@@ -15,6 +18,10 @@ const StatusTag = ({ status }) => {
       <span className="font-poppins text-dimWhite md:text-xs text-[8px] leading-[30px]">
         Batteries {status}
       </span>
+     { source && <span className="px-2 text-green-400">
+      <FaLeaf/>
+      </span>}
+
     </div>
   );
 };
@@ -25,6 +32,7 @@ const StationCard = ({
   stationLocation,
   status,
   distance,
+  source
 }) => (
   <div className="flex justify-between mt-6 feature-card rounded-[18px] px-6 items-center py-4">
     <div className="flex justify-start">
@@ -34,13 +42,14 @@ const StationCard = ({
           {stationName}, {stationLocation}
         </p>
         {/* <p className="font-semibold text-white text-base">{stationLocation}</p> */}
-        <StatusTag status={status} />
+        <StatusTag status={status} source = {source} />
       </div>
     </div>
 
     <div className="flex justify-center items-center">
       <IoNavigateCircle size="1rem" className="text-dimWhite mr-2" />
-      <p className="font-semibold text-white md:text-base text-[8px]">{distance} km away</p>
+      <p className="font-semibold text-white md:text-base text-[8px]">{distance} km away</p> 
+
     </div>
   </div>
 );
