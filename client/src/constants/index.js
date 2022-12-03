@@ -31,3 +31,21 @@ export const navLinks = [
       title: "About",
     },
   ];
+
+  export const stats = [
+    {
+      id: "stats-1",
+      title: "User Active",
+      value: "3800+",
+    },
+    {
+      id: "stats-2",
+      title: "Charging Stations",
+      value: "25+",
+    },
+    {
+      id: "stats-3",
+      title: "Transaction",
+      value: "$230M+",
+    },
+  ];

@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import LandingPageNavbar from "./LandingPageNavbar";
+import Stats from "./Stats";
 import styles from "../style";
 
 const LandingPage = () => {
@@ -18,18 +19,18 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
+      <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
           <Stats/>
-          <Business/>
+          {/* <Business/>
           <Billing/>
           <CardDeal/>
           <Testimonials/>
           <Clients/>
           <CTA/>
-          <Footer/>
+          <Footer/> */}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
