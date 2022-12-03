@@ -24,7 +24,7 @@ Mentioning:
 - USP
 
 Explanation of the product/service (Explains how the product/service adds value to consumer)
-- Objective/Goal
+- [x] Objective/Goal
 - Features
 - User flows
 - Designs
