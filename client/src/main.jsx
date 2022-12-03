@@ -1,10 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./pages/App";
+import "./index.css";
+import { BrowserRouter, Route } from "react-router-dom";
+import Router from "./router";
+import styles from "./style";
+import { Navbar, Footer } from "./components";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <div className="bg-primary w-full overflow-hidden">
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Navbar />
+        </div>
+      </div>
+
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <Footer />
+    </div>
   </React.StrictMode>
-)
+);

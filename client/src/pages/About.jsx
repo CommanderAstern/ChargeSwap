@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./style";
+import styles from "../style";
 
 import {
   Navbar,
@@ -7,25 +7,25 @@ import {
   Station,
   SearchStations,
   Dashboard,
-} from "./components";
+} from "../components";
 
-const App = () => {
+export const About = () => {
   return (
-    <div className="bg-primary w-full overflow-hidden">
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+    <div>
+      {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />
         </div>
-      </div>
+      </div> */}
 
       <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth}`}>
-          <SearchStations />
+          <Dashboard />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
-export default App;
+export default About;

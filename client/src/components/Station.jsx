@@ -71,7 +71,8 @@ const InfoCard = ({ title, value, icon }) => {
   );
 };
 
-const Station = () => {
+const Station = ({id}) => {
+  console.log(id);
   return (
     <div>
       <div className={`${styles.flexCenter} ${styles.paddingX} flex-col`}>
