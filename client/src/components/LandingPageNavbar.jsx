@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { close, logo, menu } from "../assets";
 import { landingNavLinks } from "../constants";
+import Button from './Button';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -22,22 +23,12 @@ const Navbar = () => {
             mr-10
             text-white`}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a href={`/${nav.id}`}>{nav.title}</a>
           </li>
         ))}
       </ul>
 
-      <li
-        key="get-started"
-        className={`font-poppins
-            font-normal
-            cursor-pointer
-            text-[16px]
-            mr-0
-            text-gradient`}
-      >
-        <a href="#get-started">Get Started</a>
-      </li>
+  
 
       {/* only for mobile devices, created separately */}
       <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -67,7 +58,7 @@ const Navbar = () => {
                 ${index === landingNavLinks.length - 1 ? "mb-0" : "mb-4"}
                 text-white`}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a href={`/${nav.id}`}>{nav.title}</a>
               </li>
             ))}
           </ul>
