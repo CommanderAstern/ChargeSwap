@@ -8,7 +8,7 @@ import Button from "./components/Button";
 import {BrowserRouter} from 'react-router-dom';
 import Router from './router';
 import styles from './style';
-
+import batterySwap from './config'
 
 const App  = () => {
   // const classes = useStyles();

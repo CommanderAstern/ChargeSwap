@@ -1,9 +1,7 @@
 #include <WiFi.h>
-#include <Web3.h>
-#include <Util.h>
-#include <Contract.h>
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
+#include <ESPmDNS.h>
 
 const char *ssid = "Asim";
 const char *password = "ilikewater";
@@ -14,166 +12,98 @@ const char *password = "ilikewater";
 // Copy/paste the private key from MetaMask in here
 const char *PRIVATE_KEY = "a12e71ebe9a4bc009a99f6b0a99c8f24163ce13d39979100adb2a1a74c7519b7"; //32 Byte Private key 
 
-const char* serverName = "https://restPolygon.asimjawahir.repl.co/";
+const char* serverName = "https://restpolygon.asimjawahir.repl.co/";
 int wificounter = 0;
-Web3 *web3;
 
 void setup_wifi();
-void PushERC875Transaction(); 
-void queryERC875Balance(const char *userAddress);
-void sendEthToAddress(double eth, const char *destination);
-void PushERC20Transaction(double tokens, const char *toAddr, const char *contractAddr);
-void addNewBattery(int currentStation, String &&rfid, String &&metaABI,  const char *contractAddr);
-
+void addNewBatteryToStation(int currentStation, String rfid, String metaABI,  const char *contractAddr);
+String getBatteryInfo(String rfid);
 void setup() {
     Serial.begin(115200);
-    web3 = new Web3(MUMBAI_TEST_ID);
-
+    // Add
     setup_wifi();
+    
+    String json = "27,100,1670073646,0,1,\"0x0000000000000000000000000000000000000000\",\"QmdT7LTDYfXKQJGaebZeFFwtWsTg89QXVsbzzvaubJce8q\"";
 
-    // sendEthToAddress(0.01, TARGETADDRESS);
-    addNewBattery(1, "e510b430", "QmdT7LTDYfXKQJGaebZeFFwtWsTg89QXVsbzzvaubJce8q", BATTERYCONTRACT);
-    Serial.println("createdBattery");
+    // split into parts based on commas
+    int index = 0;
+    String parts[7];
+    for (int i = 0; i < json.length(); i++) {
+      if (json[i] == ',') {
+        index++;
+      } else {
+        parts[index] += json[i];
+      }
+    }
+
+    // print everything in parts
+    for (int i = 0; i < 7; i++) {
+      Serial.print(parts[i]);
+      Serial.print(" ");
+    } 
+    Serial.println();
+
 }
 
 void loop() {
+    // pushButtonCounter
+    
+
 
 }
-void addNewBattery(int currentStation, String &&rfid, String &&metaABI,  const char *contractAddr)
+String getBatteryInfo(String rfid)
 {
-	string contractAddrStr = contractAddr;
-	Contract contract(web3, contractAddr);
-	contract.SetPrivateKey(PRIVATE_KEY);
+    WiFiClientSecure client;
+    client.setInsecure();
+    String url = String(serverName) + "getBatteryDetailsRFID?rfid=" + rfid;
 
-  string addr = BATTERYCONTRACT;
-  string fromAddr = MY_ADDRESS;
-	//Get contract name (This isn't needed to push the transaction)
-	string param = contract.SetupContractData("name()", &addr);
-	string result = contract.ViewCall(&param);
-	string interpreted = Util::InterpretStringResult(web3->getString(&result).c_str());
-	Serial.println(interpreted.c_str());
+    client.connect(url.c_str(), 443);
+    HTTPClient http;
+    Serial.println("connecting to server "+ url);
+    http.begin(client, url);
 
-	//Get ethPerCharge decimals
-	param = contract.SetupContractData("ethPerCharge()", &addr);
-	result = contract.ViewCall(&param);
-  Serial.println(result.c_str());
-	long long int ethPerCharge = web3->getLongLong(&result);
-	Serial.println(ethPerCharge);
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("Connection", "keep-alive");
 
-	unsigned long long gasPriceVal = 22000000000ULL;
-	uint32_t  gasLimitVal = 90000;
-
-	//amount of erc20 token to send, note we use decimal value obtained earlier
-
-  string weiTemp = "0";
-  uint256_t weiValue = uint256_t(weiTemp.c_str());
-
-  String transTemp = String(ethPerCharge*100);
-  Serial.println(String(transTemp));
-  uint256_t transValue = uint256_t(transTemp.c_str());
-  //uint256_t for ethPerCharge
-
-  Serial.println("Works 1");
-  uint256_t stationValue = uint256_t(String(currentStation).c_str());
-  Serial.println("Works 2");
-	//get nonce
-	uint32_t nonceVal = (uint32_t)web3->EthGetTransactionCount(&fromAddr);
-  Serial.println("Works 3");
-	// //Setup contract function call
-	string p = contract.SetupContractData("addNewBatteryToStation(uint256)", &stationValue);
-  Serial.println("Works 4");
-	// //push transaction to ethereum
-	result = contract.SendTransaction(nonceVal, gasPriceVal, gasLimitVal, &contractAddrStr, &weiValue, &p);
-  Serial.println("Works 5");
-  Serial.println(result.c_str());
-
-	// string transactionHash = web3->getString(&result);
+    int httpResponseCode = -1;
+    httpResponseCode = http.GET();
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    
+    String payload = http.getString();
+    Serial.println(payload);
+    http.end();
+ 
+ 
 }
-// void sendEthToAddress(double eth, const char *destination)
-// {
-// 	//obtain a contract object, for just sending eth doesn't need a contract address
-// 	Contract contract(web3, "");
-// 	contract.SetPrivateKey(PRIVATE_KEY);
-// 	unsigned long long gasPriceVal = 22000000000ULL;
-// 	uint32_t  gasLimitVal = 90000;
-// 	string address = MY_ADDRESS;
-//   string toaddress = TARGETADDRESS;
-// 	//convert eth value to Wei
-// 	// uint256_t weiValue = Util::ConvertToWei(eth, 18);
 
-//   // 0.01
-//   string weiTemp = "1000000000000";
-//   uint256_t weiValue = uint256_t(weiTemp.c_str());
-// 	string emptyString = "";
-// 	string destinationAddress = destination;
+void addNewBatteryToStation(int currentStation, String rfid, String metaABI,  const char *contractAddr)
+{
+    WiFiClientSecure client;
+    client.setInsecure();
+    String url = String(serverName) + "addBatteryStation";
 
-// 	Serial.print("Get Nonce: ");
-// 	uint32_t nonceVal = (uint32_t)web3->EthGetTransactionCount(&address);
-// 	Serial.println(nonceVal);
-// 	Serial.println("Send TX");
-// 	string result = contract.SendTransaction(nonceVal, gasPriceVal, gasLimitVal, &toaddress, &weiValue, &emptyString);
-// 	Serial.println(result.c_str());
+    // mdns_init ();
+    // MDNS.queryHost (url);
 
-// 	string transactionHash = web3->getString(&result);
-// 	Serial.println("TX on Etherscan:");
-// 	Serial.print(ETHERSCAN_TX);
-// 	Serial.println(transactionHash.c_str()); //you can go straight to etherscan and see the pending transaction
-// }
+    client.connect(url.c_str(), 443);
+    HTTPClient http;
+    Serial.println("connecting to server "+ url);
+    http.begin(client, url);
 
-// void PushERC20Transaction(double tokens, const char *toAddr, const char *contractAddr) 
-// {
-// 	string contractAddrStr = contractAddr;
-// 	Contract contract(web3, contractAddr);
-// 	contract.SetPrivateKey(PRIVATE_KEY);
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("Connection", "keep-alive");
 
-//   string addr = ERC20CONTRACT;
-//   string fromAddr = MY_ADDRESS;
-// 	//Get contract name (This isn't needed to push the transaction)
-// 	string param = contract.SetupContractData("name()", &addr);
-// 	string result = contract.ViewCall(&param);
-// 	string interpreted = Util::InterpretStringResult(web3->getString(&result).c_str());
-// 	Serial.println(interpreted.c_str());
+    int httpResponseCode = -1;
+    String postBody = "{\"currentStation\": " + String(currentStation) + ", \"rfid\": \"" + rfid + "\", \"abi\": \"" + metaABI + "\"}";
+    Serial.println(postBody);
+    httpResponseCode = http.POST(postBody.c_str());
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
 
-// 	//Get Contract decimals
-// 	param = contract.SetupContractData("decimals()", &addr);
-// 	result = contract.ViewCall(&param);
-// 	int decimals = web3->getInt(&result);
-// 	Serial.println(decimals);
+    http.end();
+}
 
-// 	unsigned long long gasPriceVal = 22000000000ULL;
-// 	uint32_t  gasLimitVal = 90000;
-
-// 	//amount of erc20 token to send, note we use decimal value obtained earlier
-// 	// uint256_t weiValue = Util::ConvertToWei(tokens, 18);
-
-//   string weiTemp = "0";
-//   uint256_t weiValue = uint256_t(weiTemp.c_str());
-
-//   string transTemp = "1000000000000";
-//   uint256_t transValue = uint256_t(transTemp.c_str());
-
-
-// 	//get nonce
-// 	uint32_t nonceVal = (uint32_t)web3->EthGetTransactionCount(&fromAddr);
-// 	string toAddress = toAddr;
-// 	string valueStr = "0x00";
-//   string emptyString = "";
-// 	//Setup contract function call
-// 	string p = contract.SetupContractData("transfer(address,uint256)", &toAddress, &transValue); //ERC20 function plus params
-
-// 	//push transaction to ethereum
-// 	result = contract.SendTransaction(nonceVal, gasPriceVal, gasLimitVal, &contractAddrStr, &weiValue, &p);
-//   Serial.println(result.c_str());
-
-// 	string transactionHash = web3->getString(&result);
-// }
-
-
-
-
-/* This routine is specifically geared for ESP32 perculiarities */
-/* You may need to change the code as required */
-/* It should work on 8266 as well */
 void setup_wifi()
 {
     if (WiFi.status() == WL_CONNECTED)
