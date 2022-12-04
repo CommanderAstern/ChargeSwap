@@ -11,16 +11,16 @@ import {
 
 export const Stations = () => {
   
-  const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
-  const navigate = useNavigate();
+  // const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
+  // const navigate = useNavigate();
 
-    useEffect (() => {
-    if(!address && !eoaWalletLoading){
-      navigate("/");
-    }
+  //   useEffect (() => {
+  //   if(!address && !eoaWalletLoading){
+  //     navigate("/");
+  //   }
 
-  })
-    //query parametes
+  // })
+  //   //query parametes
     const { id } = useParams();
 
   return (

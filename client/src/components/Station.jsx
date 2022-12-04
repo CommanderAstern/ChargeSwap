@@ -6,6 +6,16 @@ import Button from "./Button";
 import { station_1, station_2, station_3 } from "../assets";
 import { GiBattery75 } from "react-icons/gi";
 import { SiEthereum } from "react-icons/si";
+import { ethers } from "ethers";
+import SmartAccount from "@biconomy/smart-account";
+import SocialLogin from "@biconomy/web3-auth";
+import {useNavigate} from "react-router-dom";
+import { useWeb3AuthContext } from "../contexts/SocialLoginContext";
+import { useSmartAccountContext } from "../contexts/SmartAccountContext";
+import batterySwap from "../config";
+import batterySwapABI from '../artifacts/contracts/BatterySwap.sol/BatterySwap.json';
+
+
 
 const TransactionItem = ({ percentage, index, price }) => {
   return (
@@ -38,6 +48,40 @@ const TransactionItem = ({ percentage, index, price }) => {
 };
 
 const TransactionSummary = () => {
+  const navigate = useNavigate();
+  const { web3Provider } = useWeb3AuthContext();
+  const { state: walletState, wallet } = useSmartAccountContext();
+  async function getTokenBalances() {
+    const signer = web3Provider.getSigner();
+    const batterySwapContract = new ethers.Contract(batterySwap, batterySwapABI.abi, signer);
+    
+
+    const ethPerChargeVal = await batterySwapContract.ethPerCharge();
+    const ethPerCharge = ethPerChargeVal.toString();
+    // create sample transactoin
+
+    let totalPrice = await batterySwapContract.totalCostForUser(wallet.owner);
+    totalPrice = totalPrice.toString();
+
+    // console.log("totalPrice", totalPrice);
+    let transaction = await batterySwapContract.swapAllBatteries(1, {
+      value: totalPrice,
+      gasLimit: 10000000,
+    });
+    await transaction.wait().then(
+      navigate("/Payment")
+    );
+    
+    
+
+
+    // console.log(transaction);
+}
+
+const transact = async ()=>{
+  // console.log(batterySwapABI)
+  getTokenBalances();
+}
   return (
     <div className="flex flex-col mt-8 px-8 py-8 feature-card rounded-lg md:mx-52">
       <h2 className="text-gradient font-poppins font-bold text-xl mb-4">
@@ -49,7 +93,7 @@ const TransactionSummary = () => {
       <div className="flex justify-end">
         <span className="text-teal-200 font-semibold font-poppins">Total: 0.00002 ETH</span>
       </div>
-      <Button text="Pay Now" icon={SiEthereum} styles="mt-4"/>
+      <button text="Pay Now" onClick = {()=>transact()}  on={SiEthereum} styles="mt-4">Pay Now</button>
     </div>
   );
 };
