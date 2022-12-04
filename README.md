@@ -55,6 +55,7 @@ Blockchain technology, combined with IoT, provides a solution to problems relate
 - IPFS: to store the metadata for the batteries used
 - Biconomy: used for social login and reducing the steps taken in UX
 
-
+## References
+https://www.niti.gov.in/sites/default/files/2020-01/Blockchain_The_India_Strategy_Part_I.pdf
 
 
