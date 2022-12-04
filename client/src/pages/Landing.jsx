@@ -11,8 +11,7 @@ export const Landing = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(address) setAdd(address);
-    navigate("/home");
+    if(address) navigate("/home");
     
   }, [address]);
 

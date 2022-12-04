@@ -99,7 +99,7 @@ const transact = async ()=>{
       <div className="flex justify-end">
         <span className="text-teal-200 font-semibold font-poppins">Total: 0.00002 ETH</span>
       </div>
-      <button text="Pay Now" onClick = {transact}  on={SiEthereum} styles="mt-4">Pay Now</button>
+      <button className="rounded bg-blue-gradient w-1/2 mx-auto py-2 mt-4" onClick = {transact}  on={SiEthereum} styles="mt-4">Pay Now</button>
     </div>
   );
 };
