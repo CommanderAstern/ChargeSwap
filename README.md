@@ -4,7 +4,7 @@
 
 
 ## Problem Statement
-The world is shifting to Electric Vehicles especially With the increasing demand for clean energy and the need to reduce emissions. Governments around the world are investing heavily in EV infrastructure and incentives, while automakers are developing new models with improved range and performance and implementing models that involve usage of electricity or even hybrid models. 
+The world is shifting to Electric Vehicles especially With the increasing demand for clean energy and the need to reduce emissions. The Indian government has set a target that 30% of all vehicles be electrically driven by 2030. For this aim to be realised requires that strong incentives be created for the manufacture, sale, and usage of electric vehicles. Governments around the world are investing heavily in EV infrastructure and incentives, while automakers are developing new models with improved range and performance and implementing models that involve usage of electricity or even hybrid models. 
 
 - Battery technology is also advancing rapidly, mainly with either battery charging or with battery swapping. Although there has been support for charging stations, it is much lesser for stations that have swappable batteries. 
 - Swappable batteries are faster, convenient and more efficient than charging stations hence there needs to be good software and hardware that supports this.
