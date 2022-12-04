@@ -8,6 +8,7 @@ import  StationInfo  from "./pages/StationInfo";
 import About  from "./pages/About";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
+import Payment from "./pages/Payment";
 // import { Other } from "./pages/Other";
 // import { NotFound } from "./pages/NotFound";
 
@@ -15,11 +16,16 @@ import { useWeb3AuthContext } from "./contexts/SocialLoginContext";
 import {useState} from "react"
 import { useSmartAccountContext } from "./contexts/SmartAccountContext";
 
-const Requireauth =({child})=>{
-  const { connect, address, loading: eoaWalletLoading } = useWeb3AuthContext();
-  return address ? child : <Navigate to ="/"/> 
+import { useAuth } from "./Auth";
 
-}
+ const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+  if (!user) {
+    // user is not authenticated
+    return <Navigate to="/" />;
+  }
+  return children;
+};
 
 export const Router = () => {
 
@@ -27,13 +33,11 @@ export const Router = () => {
   return (
     <Routes>
       <Route index element={<Landing />} />
-      <Route path="/home" element={<Requireauth><Dashboard/></Requireauth>} />
+      <Route path="/home" element={<Dashboard/>} />
       <Route path="/stations" element={<Stations/>} />
       <Route path = "/stations/:id" element = {<StationInfo/>} />
       <Route path="/about" element={<About />} />
-
-
-
+      <Route path="/payment" element={<Payment />} />
       {/* <Route path="/other" element={<Other />} /> */}
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>

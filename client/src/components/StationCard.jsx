@@ -38,9 +38,9 @@ const StationCard = ({
     <div className="flex justify-start">
       <img src={image} alt="station" className="rounded-md w-[60px] h-[60px]" />
       <div className="flex flex-col ml-6">
-        <p className="font-bold text-white md:text-lg text-xs">
+        <a href = "/stations/5" className="font-bold text-white md:text-lg text-xs">
           {stationName}, {stationLocation}
-        </p>
+        </a>
         {/* <p className="font-semibold text-white text-base">{stationLocation}</p> */}
         <StatusTag status={status} source = {source} />
       </div>
