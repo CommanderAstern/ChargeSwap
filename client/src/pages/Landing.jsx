@@ -1,27 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import styles from "../style";
+import { useWeb3AuthContext } from "../contexts/SocialLoginContext";
+import { useNavigate } from "react-router-dom";
 
-import {
-  LandingPage,
-} from "../components";
+import { LandingPage } from "../components";
 
 export const Landing = () => {
-  return (
-    <div>
-      {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar />
-        </div>
-      </div> */}
+  const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
+  const [add, setAdd] = useState(null);
+  const navigate = useNavigate();
 
-      <div className={`bg-primary ${styles.flexCenter} ${styles.paddingX} `}>
-        <div className={`${styles.boxWidth}`}>
-          <LandingPage />
-        </div>
-      </div>
-      {/* <Footer /> */}
-    </div>
-  );
+  useEffect(() => {
+    if(address) setAdd(address);
+    navigate("/home");
+    
+  }, [address]);
+
+  return <LandingPage />;
 };
 
 export default Landing;

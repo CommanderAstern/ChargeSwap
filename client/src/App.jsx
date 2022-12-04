@@ -8,12 +8,20 @@ import Button from "./components/Button";
 import {BrowserRouter} from 'react-router-dom';
 import Router from './router';
 import styles from './style';
-
-
+import batterySwap from './config'
+// import {useAuth} from './Auth'
 const App  = () => {
+  // const {user} = useAuth();
   // const classes = useStyles();
   const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
   const { loading } = useSmartAccountContext();
+  const [add, setAdd] = useState(null);
+
+  useEffect(() => {
+    if(address) setAdd(address);
+  }, [address]);
+  
+ 
   console.log(loading);
   // const { loading } = useSmartAccountContext();
   // const [balance, setBalance] = useState(0);
@@ -127,10 +135,10 @@ const App  = () => {
   return (
   
      <div className="bg-primary w-full overflow-hidden">
-    {address && <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+    {add && <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar/>
-       <span> <Button
+       <div className="flex flex-column"> <Button
           title="Logout"
           onClickFunc={disconnect}
           isLoading={eoaWalletLoading}
@@ -142,11 +150,11 @@ const App  = () => {
               "linear-gradient(90deg, #0063FF -2.21%, #9100FF 89.35%)",
           }}
         />
-       <span className="text-white"> {address}</span></span>
+       <span className="px-2 text-white my-auto"> {address}</span></div>
 
       </div>
     </div>}
-    {!address && <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+    {!add && <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <LandingPageNavbar  />
         {/* <Button

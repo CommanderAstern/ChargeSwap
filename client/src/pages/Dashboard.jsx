@@ -8,7 +8,7 @@ import {
 
 export const Dashboard = () => {
   return (
-    <div>
+    <div className="mb-[20rem]">
       {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />

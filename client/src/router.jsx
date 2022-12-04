@@ -16,11 +16,16 @@ import { useWeb3AuthContext } from "./contexts/SocialLoginContext";
 import {useState} from "react"
 import { useSmartAccountContext } from "./contexts/SmartAccountContext";
 
-const Requireauth =({child})=>{
-  const { connect, address, loading: eoaWalletLoading } = useWeb3AuthContext();
-  return address ? child : <Navigate to ="/"/> 
+import { useAuth } from "./Auth";
 
-}
+ const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+  if (!user) {
+    // user is not authenticated
+    return <Navigate to="/" />;
+  }
+  return children;
+};
 
 export const Router = () => {
 

@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 import {
-  Station,
+  Station
 } from "../components";
 
 export const Stations = () => {
-
+  
   // const { connect,disconnect,address, loading: eoaWalletLoading } = useWeb3AuthContext();
   // const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export const Stations = () => {
   //   }
 
   // })
-    //query parametes
+  //   //query parametes
     const { id } = useParams();
 
   return (

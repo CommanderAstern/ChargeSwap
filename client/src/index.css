@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.full-app-wrapper {
+  min-width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
