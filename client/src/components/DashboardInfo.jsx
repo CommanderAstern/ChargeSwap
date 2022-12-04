@@ -1,5 +1,5 @@
-import React,{useEffect} from "react";
-import { profile } from "../assets";
+import React, { useEffect } from "react";
+import { profile, graph } from "../assets";
 import { BsFillLightningChargeFill, BsRecycle } from "react-icons/bs";
 import { SiEthereum } from "react-icons/si";
 import { TbScooterElectric } from "react-icons/tb";
@@ -73,9 +73,11 @@ const Graph = () => {
   }, []);
 
   return (
-    <div class="shadow-lg rounded-lg overflow-hidden">
-      <div class="py-3 px-5 bg-gray-50">Line chart</div>
-      <canvas class="p-10" id="chartLine"></canvas>
+    <div>
+    <div class="shadow-lg rounded-lg overflow-hidden flex  flex-col  my-8 mx-auto w-[70%]">
+      <h2 className="my-2 mt-2 text-gradient text-3xl font-poppins">Battery Swap Stats</h2>
+      <img src={graph} alt="graph" />
+    </div>
     </div>
   );
 };
@@ -99,15 +101,45 @@ const DashboardInfo = () => {
       </div>
 
       {/* Second Section */}
-      {/* <Graph /> */}
+      <Graph />
 
       {/* Third section */}
       <div className="flex flex-col md:mx-[12rem] mx-6">
-      <h2 className="mt-2 text-gradient text-6xl font-poppins">Swap History</h2>
-        <PastTransactionCard stationName="Station #127" stationLocation="Whitefiled, Bengaluru" timestamp="29th December at 10:12 AM" batteries="2" eth="0.00023" power="2kWh"/>
-        <PastTransactionCard stationName="Station #27" stationLocation="Varthur, Bengaluru" timestamp="29th November at 10:12 AM" batteries="2" eth="0.02" power="5kWh"/>
-        <PastTransactionCard stationName="Station #56" stationLocation="Indiranagar, Bengaluru" timestamp="27th October at 07:00 PM" batteries="2" eth="0.00001" power="1kWh"/>
-        <PastTransactionCard stationName="Station #101" stationLocation="Kormangala, Bengaluru" timestamp="26th October at 10:12 AM" batteries="2" eth="0.01" power="10kWh"/>
+        <h2 className="mt-2 text-gradient text-3xl font-poppins">
+          Swap History
+        </h2>
+        <PastTransactionCard
+          stationName="Station #127"
+          stationLocation="Whitefiled, Bengaluru"
+          timestamp="29th December at 10:12 AM"
+          batteries="2"
+          eth="0.00023"
+          power="2kWh"
+        />
+        <PastTransactionCard
+          stationName="Station #27"
+          stationLocation="Varthur, Bengaluru"
+          timestamp="29th November at 10:12 AM"
+          batteries="2"
+          eth="0.02"
+          power="5kWh"
+        />
+        <PastTransactionCard
+          stationName="Station #56"
+          stationLocation="Indiranagar, Bengaluru"
+          timestamp="27th October at 07:00 PM"
+          batteries="2"
+          eth="0.00001"
+          power="1kWh"
+        />
+        <PastTransactionCard
+          stationName="Station #101"
+          stationLocation="Kormangala, Bengaluru"
+          timestamp="26th October at 10:12 AM"
+          batteries="2"
+          eth="0.01"
+          power="10kWh"
+        />
       </div>
     </div>
   );

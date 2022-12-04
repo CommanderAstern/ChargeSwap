@@ -27,6 +27,7 @@ import web3js from "./web3js.png";
 import arduino from "./arduino.png";
 import figma from "./figma.png";
 import tailwindcss from "./tailwindcss.png";
+import graph from "./graph.png"
 
 export {
     logo,
@@ -58,4 +59,5 @@ export {
     arduino,
     figma,
     tailwindcss,
+    graph
 }

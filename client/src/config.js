@@ -1,3 +1,3 @@
-const batterySwap = "0x7e03f4b3abC1921448aa504dcdfC964700068364";
+const batterySwap = "0xd6FFefE9Dc447a64D1c27c91754437De47675C18";
 
 export default batterySwap;
