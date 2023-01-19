@@ -26,11 +26,12 @@ const App  = () => {
   }, [address, wallet]);
 
   useEffect(() => {
+    console.log(account)
     if (account) { // 'your connected wallet address'
       EmbedSDK.init({
-        headerText: 'Hello DeFi', // optional
+        headerText: 'Welcome to ChargeSwap', // optional
         targetID: 'sdk-trigger-id', // mandatory
-        appName: 'consumerApp', // mandatory
+        appName: 'ChargeSwap', // mandatory
         user: account, // mandatory
         chainId: 80001, // mandatory
         viewOptions: {
@@ -39,7 +40,7 @@ const App  = () => {
             unreadIndicatorColor: '#cc1919',
             unreadIndicatorPosition: 'bottom-right',
         },
-        theme: 'light',
+        theme: 'dark',
         onOpen: () => {
           console.log('-> client dApp onOpen callback');
         },
@@ -52,7 +53,7 @@ const App  = () => {
     return () => {
       EmbedSDK.cleanup();
     };
-  }, []);
+  }, [account]);
   
  
   console.log(loading);
@@ -171,7 +172,7 @@ const App  = () => {
     {add && <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar/>
-       <div className="flex flex-column"> <Button
+       <div className="flex flex-column mx-2"> <Button
           title="Logout"
           onClickFunc={disconnect}
           isLoading={eoaWalletLoading}
@@ -183,8 +184,8 @@ const App  = () => {
               "linear-gradient(90deg, #0063FF -2.21%, #9100FF 89.35%)",
           }}
         />
-       <span className="px-2 text-white my-auto"> {address}</span>
-       <button className="text-black px-2 bg-green-400 rounded" id="sdk-trigger-id">Push Notifs</button> 
+       {/* <span className="px-2 text-white my-auto"> {address}</span> */}
+       <button className="ml-6 text-black px-2 bg-green-400 rounded" id="sdk-trigger-id">Push Notifs</button> 
        </div>
 
       </div>
