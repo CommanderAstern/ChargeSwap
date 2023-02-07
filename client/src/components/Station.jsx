@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "../style";
 import SearchBar from "./SearchBar";
 import StationCard from "./StationCard";
@@ -9,20 +9,27 @@ import { SiEthereum } from "react-icons/si";
 import { ethers } from "ethers";
 import SmartAccount from "@biconomy/smart-account";
 import SocialLogin from "@biconomy/web3-auth";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useWeb3AuthContext } from "../contexts/SocialLoginContext";
 import { useSmartAccountContext } from "../contexts/SmartAccountContext";
 import batterySwap from "../config";
-import batterySwapABI from '../artifacts/contracts/BatterySwap.sol/BatterySwap.json';
-
-
+import batterySwapABI from "../artifacts/contracts/BatterySwap.sol/BatterySwap.json";
 
 const TransactionItem = ({ percentage, index, price }) => {
 
-  const transact = async () => {
-    return null;
-
+  useEffect(() => {
+    const btn = document.getElementById("myBtn");
+    function myFunction() {
+      btn.hidden = true;
+      setTimeout(() => {
+        btn.hidden = false;
+        console.log("Button Activated");
+      }, 20000);
+    }
+    if(btn) myFunction();
   }
+  )
+  
 
   return (
     <div className="flex justify-between">
@@ -54,13 +61,40 @@ const TransactionItem = ({ percentage, index, price }) => {
 };
 
 const TransactionSummary = () => {
+  async function isValidOrNot() {
+    const signer = web3Provider.getSigner();
+    const batterySwapContract = new ethers.Contract(
+      batterySwap,
+      batterySwapABI.abi,
+      signer
+    );
+
+    const isTrueVal = await batterySwapContract.userToLastScanned(
+      "0xB7E99669e9eDdD2975511FBF059d01969f43D409"
+    );
+    const isTrue = isTrueVal.toString();
+    // create sample transactoin
+
+    // let totalPrice = await batterySwapContract.totalCostForUser(wallet.owner);
+    // totalPrice = totalPrice.toString();
+
+    // console.log("totalPrice", totalPrice);
+    // let transaction = await batterySwapContract.swapAllBatteries(1, {
+    //   value: totalPrice,
+    //   gasLimit: 10000000,
+    // });
+    console.log("Hey!!!!", isTrue);
+  }
   const navigate = useNavigate();
   const { web3Provider } = useWeb3AuthContext();
   const { state: walletState, wallet } = useSmartAccountContext();
   async function getTokenBalances() {
     const signer = web3Provider.getSigner();
-    const batterySwapContract = new ethers.Contract(batterySwap, batterySwapABI.abi, signer);
-    
+    const batterySwapContract = new ethers.Contract(
+      batterySwap,
+      batterySwapABI.abi,
+      signer
+    );
 
     const ethPerChargeVal = await batterySwapContract.ethPerCharge();
     const ethPerCharge = ethPerChargeVal.toString();
@@ -70,36 +104,42 @@ const TransactionSummary = () => {
     totalPrice = totalPrice.toString();
 
     // console.log("totalPrice", totalPrice);
-    let transaction = await batterySwapContract.swapAllBatteries(1, {
+    let transaction = await batterySwapContract.swapAllBatteries(0, {
       value: totalPrice,
       gasLimit: 10000000,
     });
-    await transaction.wait().then(
-      navigate("/Payment")
-    );
-    
-    
-
+    await transaction.wait().then(navigate("/Payment"));
 
     // console.log(transaction);
-}
+  }
 
-const transact = async ()=>{
-  // console.log(batterySwapABI)
-  getTokenBalances();
-}
+  const transact = async () => {
+    // console.log(batterySwapABI)
+    getTokenBalances();
+  };
+  isValidOrNot();
   return (
     <div className="flex flex-col mt-8 px-8 py-8 feature-card rounded-lg md:mx-52">
       <h2 className="text-gradient font-poppins font-bold text-xl mb-4">
         Summary
       </h2>
-      <TransactionItem percentage="92" index="1" price="0.00001" />
-      <TransactionItem percentage="92" index="2" price="0.00001" />
-      <hr className="my-2 bg-gray-800"/>
+      <TransactionItem percentage="69" index="1" price="0.00001" />
+      <TransactionItem percentage="71" index="2" price="0.00001" />
+      <hr className="my-2 bg-gray-800" />
       <div className="flex justify-end">
-        <span className="text-teal-200 font-semibold font-poppins">Total: 0.00002 ETH</span>
+        <span className="text-teal-200 font-semibold font-poppins">
+          Total: 0.00002 ETH
+        </span>
       </div>
-      <button className="rounded bg-blue-gradient w-1/2 mx-auto py-2 mt-4" onClick = {transact}  on={SiEthereum} styles="mt-4">Pay Now</button>
+      <button
+        id="myBtn"
+        className="rounded bg-blue-gradient w-1/2 mx-auto py-2 mt-4"
+        onClick={transact}
+        on={SiEthereum}
+        styles="mt-4"
+      >
+        Pay Now
+      </button>
     </div>
   );
 };
@@ -121,7 +161,7 @@ const InfoCard = ({ title, value, icon }) => {
   );
 };
 
-const Station = ({id}) => {
+const Station = ({ id }) => {
   console.log(id);
   return (
     <div>

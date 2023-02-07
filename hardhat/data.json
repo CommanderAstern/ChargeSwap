@@ -1,0 +1,82 @@
+[
+    {
+        "name": "battery0",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-02",
+        "rfid": "e510b430"
+    },
+    {
+        "name": "battery1",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-03",
+        "rfid": "dbdcd122"
+    },
+    {
+        "name": "battery2",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-04",
+        "rfid": "1a188cb0"
+    },
+    {
+        "name": "battery3",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-05",
+        "rfid": "1a48eab0"
+    },
+    {
+        "name": "battery4",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-06",
+        "rfid": "aa7f6eaf"
+    },
+    {
+        "name": "battery5",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-07",
+        "rfid": "da1ef3b0"
+    },
+    {
+        "name": "battery6",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-08",
+        "rfid": "1a44e084"
+    },
+    {
+        "name": "battery7",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-09",
+        "rfid": "5c67333"
+    }
+]

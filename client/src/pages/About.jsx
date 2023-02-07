@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import styles from "../style";
 
-// import {
-//   Navbar,
-//   Footer,
-//   Station,
-//   SearchStations,
-//   DashboardInfo
-// } from "../components";
-
 export const About = () => {
   return (
     <div>
