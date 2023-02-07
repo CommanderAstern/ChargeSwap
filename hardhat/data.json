@@ -1,42 +1,74 @@
 [
     {
-        "name": "Steeleton",
-        "type": "steel",
-        "hp": 12,
-        "attack": 43,
-        "defense": 55,
-        "speed": 10
+        "name": "battery0",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-02"
     },
     {
-        "name": "Dewena",
-        "type": "earth",
-        "hp": 10,
-        "attack": 63,
-        "defense": 35,
-        "speed": 8
+        "name": "battery1",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-03"
     },
     {
-        "name": "Walruse",
-        "type": "ice",
-        "hp": 16,
-        "attack": 33,
-        "defense": 65,
-        "speed": 6
+        "name": "battery2",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-04"
     },
     {
-        "name": "Wolvoom",
-        "type": "grass",
-        "hp": 9,
-        "attack": 75,
-        "defense": 30,
-        "speed": 13
+        "name": "battery3",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-05"
     },
     {
-        "name": "Girasion",
-        "type": "fire",
-        "hp": 14,
-        "attack": 39,
-        "defense": 42,
-        "speed": 9
+        "name": "battery4",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-06"
+    },
+    {
+        "name": "battery5",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-07"
+    },
+    {
+        "name": "battery6",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-08"
+    },
+    {
+        "name": "battery7",
+        "capacity": "steel",
+        "current": 12,
+        "voltage": 43,
+        "maxTemperature": 55,
+        "company": "ChargeSwap Inc.",
+        "dateOfManufacture": "2021-01-09"
     }
 ]
